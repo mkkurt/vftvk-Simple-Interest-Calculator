@@ -1,37 +1,35 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script src="script.js"></script>
-    <link rel="stylesheet" href="style.css" />
     <meta charset="utf-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, viewport-fit=cover"
     />
-    <title>Interest Calculator</title>
+    <title>Loan Calculator</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
   </head>
   <body>
-    <div class="wrapper">
-      <form id="form" onsubmit="event.preventDefault();handleSubmit()">
-        <label for="amount">Amount</label>
-        <input type="number" id="amount" name="amount" />
+    <div id="form-wrapper" class="form-wrapper">
+      <form id="form" onsubmit="event.preventDefault(); handleSubmit()">
+        <label for="amount">Amount (*)</label>
+        <input type="number" id="amount" />
         <label for="rate">Interest Rate</label>
-        <div class="rate-wrapper">
-          <input type="range" id="rate" oninput="handleRange()" /><span
-            id="rateText"
-            >50%</span
-          >
-        </div>
+        <input type="range" id="rate" oninput="handleRange()" /><span
+          id="rateText"
+          >50%</span
+        >
         <label for="years">No. of Years</label>
-        <select name="years" id="years">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="5">5</option>
-          <option value="10">10</option>
+        <select id="years">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>5</option>
         </select>
-        <input id="submit" type="submit" value="Calculate" />
+        <input type="submit" id="submit-button" value="Submit" />
       </form>
-      <div id="results"></div>
+      <div style="display: none" id="result">RESULT</div>
     </div>
   </body>
 </html>
