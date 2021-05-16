@@ -27,3 +27,30 @@ function handleRange() {
   var input = document.getElementById("rate").value;
   rateText.innerHTML = input + "%";
 }
+
+// SWITCH DARK MODE
+function handleDark() {
+  var getStyle = function (element, property) {
+    return window.getComputedStyle
+      ? window.getComputedStyle(element, null).getPropertyValue(property)
+      : element.style[
+          property.replace(/-([a-z])/g, function (g) {
+            return g[1].toUpperCase();
+          })
+        ];
+  };
+  var backgroundColor = getStyle(document.body, "background-color");
+  var boxColor = document.getElementById("form-wrapper");
+  var moon = document.getElementById("darkmode");
+  if (backgroundColor == "rgba(0, 0, 0, 0)") {
+    document.body.style.backgroundColor = "black";
+    moon.style.color = "white";
+    boxColor.style.backgroundColor = "rgb(188, 111, 241)";
+    boxColor.style.color = "rgb(0, 0, 0)";
+  } else {
+    document.body.style.backgroundColor = "rgba(0, 0, 0, 0)";
+    moon.style.color = "black";
+    boxColor.style.backgroundColor = "rgb(82, 5, 123)";
+    boxColor.style.color = "rgb(255, 255, 255)";
+  }
+}
